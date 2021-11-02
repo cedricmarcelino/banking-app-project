@@ -59,7 +59,7 @@ function DelUserPage(props) {
                                 }
                             </select>
                         </fieldset>
-                        <button className="my-3 bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 border border-pink-700 rounded w-40 m-auto" onClick={deleteUser}>
+                        <button className="my-3 bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 border border-pink-700 rounded w-40 m-auto disabled:opacity-50" onClick={deleteUser} disabled={selection===null}>
                             Delete User
                         </button>
                     </div>

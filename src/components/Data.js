@@ -79,7 +79,7 @@ function Data(props) {
                                         <td key="accNumber" className="cursor-pointer hover:underline font-bold hover:text-pink-600 users-table border-solid" onClick={showUserInformation}>{user.accNumber}</td>
                                         <td key="givenName" className="users-table border-solid">{user.givenName}</td>
                                         <td key="lastName" className="users-table border-solid">{user.lastName}</td>
-                                        <td key="balance" className="users-table border-solid">{`₱ ${user.balance}`}</td>
+                                        <td key="balance" className="users-table border-solid">{`₱ ${parseInt(user.balance)}`}</td>
                                     </tr>
                                 )
                             }

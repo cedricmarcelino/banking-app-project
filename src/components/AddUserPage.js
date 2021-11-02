@@ -7,7 +7,6 @@ function AddUserPage(props) {
     const {users,setUsers} = props
 
     let accountExists = false
-    
 
     const [givenName, setgivenName] = useState("")
     function getGivenName(val){
@@ -56,12 +55,12 @@ function AddUserPage(props) {
                 })
 
                 if(accountExists === false){
-                    users.push({"givenName":givenName,"lastName":lastName,"accNumber":accNumber,"balance":balance})
+                    users.push({"givenName":givenName,"lastName":lastName,"accNumber":accNumber,"balance":parseInt(balance)})
                     localStorage.setItem("users", JSON.stringify(users))
                     setUsers(() => JSON.parse(localStorage.getItem("users")))
                     const current = new Date()
                     const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`
-                    localStorage.setItem(`transactions_${accNumber}`, JSON.stringify([{"transactionType": "Opened Account", "transactionAmount": `₱ ${balance}`, "timeOfTransaction": date}]))
+                    localStorage.setItem(`transactions_${accNumber}`, JSON.stringify([{"transactionType": "Opened Account", "transactionAmount": `₱ ${parseInt(balance)}`, "timeOfTransaction": date}]))
                     setgivenName("")
                     setLastName("")
                     setAccNumber("")
@@ -76,11 +75,11 @@ function AddUserPage(props) {
 
         } else {
             if(givenName !== "" && lastName !== "" && accNumber !== "" && balance !== ""){
-                localStorage.setItem("users", JSON.stringify([{"givenName":givenName,"lastName":lastName,"accNumber":accNumber,"balance":balance}]))
+                localStorage.setItem("users", JSON.stringify([{"givenName":givenName,"lastName":lastName,"accNumber":accNumber,"balance":parseInt(balance)}]))
                 setUsers(() => JSON.parse(localStorage.getItem("users")))
                 const current = new Date()
                 const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`
-                localStorage.setItem(`transactions_${accNumber}`, JSON.stringify([{"transactionType": "Opened Account", "transactionAmount": `₱ ${balance}`, "timeOfTransaction": date}]))
+                localStorage.setItem(`transactions_${accNumber}`, JSON.stringify([{"transactionType": "Opened Account", "transactionAmount": `₱ ${parseInt(balance)}`, "timeOfTransaction": date}]))
                 setgivenName("")
                 setLastName("")
                 setAccNumber("")
@@ -111,7 +110,7 @@ function AddUserPage(props) {
                     <label>Starting Balance:</label>
                     <input autoComplete="off" type="text" id="balance" name="balance" className="mx-2" onChange={getBalance} value={balance} ></input>
                 </fieldset>
-                <button className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 border border-pink-700 rounded w-40 m-auto" onClick={addUser}>
+                <button className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 border border-pink-700 rounded w-40 m-auto disabled:opacity-50" onClick={addUser} disabled={givenName === "" || lastName === "" || accNumber === "" || balance === ""}>
                     Add New User
                 </button>
             </div>

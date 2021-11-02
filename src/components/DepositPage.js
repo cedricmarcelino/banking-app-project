@@ -19,15 +19,16 @@ function DepositPage(props) {
     }
 
     function depositFunds(){
-        
-        users[usersIndex].balance = parseInt(users[usersIndex].balance) + parseInt(amount)
-        localStorage.setItem("users",JSON.stringify(users))
-        const current = new Date()
-        const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`
-        userTransactions.push({"transactionType": "Deposited Funds", "transactionAmount": `₱ ${amount}`, "timeOfTransaction": date})
-        localStorage.setItem(`transactions_${users[usersIndex].accNumber}`,JSON.stringify(userTransactions))
-        setAmount("")
-        setActive("DepositSuccesful")
+        if(parseInt(amount)!==0 && amount!==""){
+            users[usersIndex].balance = parseInt(users[usersIndex].balance) + parseInt(amount)
+            localStorage.setItem("users",JSON.stringify(users))
+            const current = new Date()
+            const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`
+            userTransactions.push({"transactionType": "Deposited Funds", "transactionAmount": `₱ ${parseInt(amount)}`, "timeOfTransaction": date})
+            localStorage.setItem(`transactions_${users[usersIndex].accNumber}`,JSON.stringify(userTransactions))
+            setAmount("")
+            setActive("DepositSuccesful")
+        }
     }
 
     return (
@@ -36,7 +37,7 @@ function DepositPage(props) {
                     <label>Amount to deposit: </label>
                     <input autoComplete="off" type="text" id="amount" name="amount" className="mx-2" onChange={getAmount} value={amount} ></input>
                 </fieldset>
-                <button className="my-3 bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 border border-pink-700 rounded w-40 m-auto" onClick={depositFunds}>
+                <button className="my-3 bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 border border-pink-700 rounded w-40 m-auto disabled:opacity-50" onClick={depositFunds} disabled={parseInt(amount)===0 || amount===""}>
                     Deposit Funds
                 </button><br></br>
                 <i className="fa fa-arrow-left cursor-pointer" onClick = {showUserInformation}> GO BACK</i>

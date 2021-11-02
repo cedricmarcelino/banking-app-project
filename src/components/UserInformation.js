@@ -30,7 +30,7 @@ function UserInformation(props) {
                         <div className="w-2/4 text-left p-4 m-2 mx-7">
                             <span>Account Holder: {users[usersIndex].givenName} {users[usersIndex].lastName}</span><br></br>
                             <span>Account Number: {users[usersIndex].accNumber}</span><br></br>
-                            <span>Running Balance: ₱ {users[usersIndex].balance}</span>
+                            <span>Running Balance: ₱ {parseInt(users[usersIndex].balance)}</span>
                         </div>
                         <div className="w-2/4 flex flex-wrap justify-evenly">
                             <div className="w-60 m-2 p-4">

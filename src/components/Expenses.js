@@ -24,7 +24,7 @@ function Expenses(props) {
                                             <tr key={`expense_${index}`}>
                                                 <td key="timeExpenseAdded">{expense.timeExpenseAdded}</td>
                                                 <td key="expenseDetails">{expense.expenseDetails}</td>
-                                                <td key="expenseAmount" className="text-center">{`-₱ ${expense.expenseAmount}`}</td>
+                                                <td key="expenseAmount" className="text-center">{`-₱ ${parseInt(expense.expenseAmount)}`}</td>
                                                 <td className="text-center"><i id={index} className='fas fa-trash-alt cursor-pointer' onClick={props.deleteExpense}></i></td>
                                             </tr>
                                         )

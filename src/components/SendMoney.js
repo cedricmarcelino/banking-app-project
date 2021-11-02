@@ -21,7 +21,7 @@ function SendMoney(props) {
         }
     }
 
-    const [selection, setSelection] = useState(null)
+    const [selection, setSelection] = useState("")
     function getSelection(selected){
         setSelection(selected.target.value)
     }
@@ -31,7 +31,7 @@ function SendMoney(props) {
     }
 
     function transferFunds(){
-        if(amount!=="" && selection!==null){
+        if(amount!=="" && selection!=="" && parseInt(amount)!==0){
 
             if(parseInt(amount) <= parseInt(users[usersIndex].balance)){
                 users[usersIndex].balance = parseInt(users[usersIndex].balance) - parseInt(amount)
@@ -49,10 +49,10 @@ function SendMoney(props) {
                 const current = new Date()
                 const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`
 
-                userTransactions.push({"transactionType": `Sent Money to ${users[transferToIndex].givenName}`, "transactionAmount": `-₱ ${amount}`, "timeOfTransaction": date})
+                userTransactions.push({"transactionType": `Sent Money to ${users[transferToIndex].givenName}`, "transactionAmount": `-₱ ${parseInt(amount)}`, "timeOfTransaction": date})
                 localStorage.setItem(`transactions_${users[usersIndex].accNumber}`,JSON.stringify(userTransactions))
 
-                currentTransactionsOfReceiver.push({"transactionType": `Received Money from ${users[usersIndex].givenName}`, "transactionAmount": `₱ ${amount}`, "timeOfTransaction": date})
+                currentTransactionsOfReceiver.push({"transactionType": `Received Money from ${users[usersIndex].givenName}`, "transactionAmount": `₱ ${parseInt(amount)}`, "timeOfTransaction": date})
                 localStorage.setItem(`transactions_${users[transferToIndex].accNumber}`,JSON.stringify(currentTransactionsOfReceiver))
 
                 setAmount("")
@@ -83,10 +83,10 @@ function SendMoney(props) {
                     }
                 </select>
             </fieldset>
-            <button className="my-3 bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 border border-pink-700 rounded w-50 m-auto" onClick={transferFunds}>
+            <button className="my-3 bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 border border-pink-700 rounded w-50 m-auto disabled:opacity-50" onClick={transferFunds} disabled={amount==="" || selection==="" || parseInt(amount)===0 || !(parseInt(amount) <= parseInt(users[usersIndex].balance))} >
                     Transfer Funds
             </button><br></br>
-            <i className="fa fa-arrow-left cursor-pointer" onClick = {showUserInformation}> GO BACK</i>
+            <i className="fa fa-arrow-left cursor-pointer" onClick = {showUserInformation} > GO BACK</i>
         </div>
     )
 }
