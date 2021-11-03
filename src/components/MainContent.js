@@ -14,7 +14,7 @@ function MainContent(props) {
             {showPage==="AddUserPage" && <AddUserPage users={users} setUsers={setUsers}/>}
             {showPage==="DelUserPage" && <DelUserPage users={users} setUsers={setUsers}/>}
             {/* eslint-disable-next-line */}
-            {showPage==="Sidebar" && <Sidebar activePage = {showPage} showAddUsersPage = {showAddUsersPage} showDelUsersPage={showDelUsersPage} showUsersPage={showUsersPage} style="flex flex-col justify-around h-96 bg-white shadow-inner fade-in" linkStyle="text-3xl text-pink-600"/>}
+            {showPage==="Sidebar" && <Sidebar activePage = {showPage} showAddUsersPage = {showAddUsersPage} showDelUsersPage={showDelUsersPage} showUsersPage={showUsersPage} style="flex flex-col justify-around bg-white shadow-inner fade-in" linkStyle="py-10 text-3xl shadow-inner text-pink-600"/>}
         </div>
     )
 }
