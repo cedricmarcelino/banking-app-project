@@ -17,7 +17,7 @@ function Data(props) {
     const [userTransactions,setUserTransactions] = useState("")
     const [userCurrentAccNumber,setAccNumber] = useState("")
     const [usersIndex,setIndex] = useState("")
-    const { users, setUsers }= props
+    const { users, setUsers , userInformationStyle,budgetStyle}= props
     
     function showUserInformation(e){
         setAccNumber(e.target.innerHTML)
@@ -48,7 +48,6 @@ function Data(props) {
             setActive("UserInformation")
         }
     },[userTransactions,usersIndex,userCurrentAccNumber])
-    console.log(users)
     if(users===null){
         return (
             <>
@@ -89,11 +88,11 @@ function Data(props) {
                 </div>
                 }
 
-                {active === "UserInformation" && <UserInformation users={users} setActive={setActive} userCurrentAccNumber={userCurrentAccNumber} usersIndex={usersIndex} setUsers={setUsers}/>}
+                {active === "UserInformation" && <UserInformation users={users} setActive={setActive} userCurrentAccNumber={userCurrentAccNumber} usersIndex={usersIndex} setUsers={setUsers} userInformationStyle={userInformationStyle}/>}
                 {active === "DepositPage" && <DepositPage users={users} setActive={setActive} usersIndex={usersIndex} userTransactions={userTransactions} setUsers={setUsers}/>}
                 {active === "WithdrawPage" && <WithdrawPage users={users} setActive={setActive} usersIndex={usersIndex} userTransactions={userTransactions} setUsers={setUsers}/>}
                 {active === "SendMoney" && <SendMoney users={users} setActive={setActive} usersIndex={usersIndex} userTransactions={userTransactions} setUsers={setUsers}/>}
-                {active === "Budget" && <Budget users={users} setActive={setActive} userCurrentAccNumber={userCurrentAccNumber} usersIndex={usersIndex}/>}
+                {active === "Budget" && <Budget users={users} setActive={setActive} userCurrentAccNumber={userCurrentAccNumber} usersIndex={usersIndex} budgetStyle={budgetStyle}/>}
                 {active==="DepositSuccesful" && <DepositSuccesful setActive={setActive}/>}
                 {active==="WithdrawSuccess" && <WithdrawSuccesful setActive={setActive}/>}
                 {active==="NotEnoughFunds" && <NotEnoughFunds setActive={setActive}/>}

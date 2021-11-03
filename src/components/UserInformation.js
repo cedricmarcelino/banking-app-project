@@ -1,7 +1,7 @@
 import Transactions from "./Transactions"
 
 function UserInformation(props) {
-    const {users,setActive,userCurrentAccNumber,usersIndex} = props
+    const {users,setActive,userCurrentAccNumber,usersIndex,userInformationStyle} = props
 
     function showUsers(){
         setActive("Users")
@@ -25,12 +25,12 @@ function UserInformation(props) {
 
     return (
             <>
-                <div className="py-5 m-6 text-center flex flex-wrap fade-in bg-white border-l-4 border-solid border-pink-600">
+                <div className={userInformationStyle}>
                     <div className="w-full flex">
                         <div className="w-2/4 text-left p-4 m-2 mx-7">
-                            <span>Account Holder: {users[usersIndex].givenName} {users[usersIndex].lastName}</span><br></br>
-                            <span>Account Number: {users[usersIndex].accNumber}</span><br></br>
-                            <span>Running Balance: ₱ {parseInt(users[usersIndex].balance)}</span>
+                            <span className="font-bold">Account Holder:</span> <br></br><span>{users[usersIndex].givenName} {users[usersIndex].lastName}</span><br></br>
+                            <span className="font-bold">Account Number:</span> <br></br><span>{users[usersIndex].accNumber}</span><br></br>
+                            <span className="font-bold">Running Balance:</span> <br></br><span>₱ {parseInt(users[usersIndex].balance)}</span>
                         </div>
                         <div className="w-2/4 flex flex-wrap justify-evenly">
                             <div className="w-60 m-2 p-4">

@@ -4,7 +4,7 @@ function Transactions(props) {
     return (
         <div className="m-6">
             <span className="text-xl">Transaction History</span>
-                    <table className="table-fixed m-auto w-full flex flex-col">
+                    <table className="table-fixed m-auto w-full flex flex-col fade-in">
                         <thead className="flex">
                             <tr className="flex w-full justify-between">
                                 <th className="w-1/3">Date</th>

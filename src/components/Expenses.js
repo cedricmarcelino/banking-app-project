@@ -5,7 +5,7 @@ function Expenses(props) {
     if(userExpenses!==null){
 
         return (
-            <>
+            <div className="fade-in">
                 <div className="m-6">
                     <span className="text-xl">Expenses</span>
                             <table className="table-fixed m-auto w-full">
@@ -38,13 +38,13 @@ function Expenses(props) {
                         Add an Expense
                 </button>
                 </div>
-            </>
+            </div>
         )
 
     } else {
         return (
-            <>
-                    <div className="m-6">
+            <div className="fade-in">
+                    <div className="m-6 fade-in">
                         <span className="text-xl">Expenses</span>
                                 <table className="table-fixed m-auto w-full">
                                     <thead>
@@ -64,7 +64,7 @@ function Expenses(props) {
                             Add an Expense
                     </button>
                     </div>
-            </>
+            </div>
         )
     }
     

@@ -56,3 +56,15 @@ th, td {
 		opacity: 1;
 	}
 }
+
+@media only screen and (max-width: 1024px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  html {
+    font-size: 9.5px;
+  }
+}

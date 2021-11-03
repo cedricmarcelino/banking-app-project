@@ -2,7 +2,7 @@ import Expenses from './Expenses'
 
 function Budget(props) {
 
-    const {users,setActive,userCurrentAccNumber,usersIndex} = props
+    const {users,setActive,userCurrentAccNumber,usersIndex,budgetStyle} = props
     let userExpenses = JSON.parse(localStorage.getItem(`expenses_${userCurrentAccNumber}`))
     let newBalance = users[usersIndex].balance
 
@@ -34,7 +34,7 @@ function Budget(props) {
 
     return (
         <>
-            <div className="py-5 m-6 fade-in bg-white border-l-4 border-solid border-pink-600 text-center">
+            <div className={budgetStyle}>
                 <h1 className="text-2xl">Projected Balance</h1>
                 <span className="text-xl">{`₱ ${newBalance}`}</span>
             </div>

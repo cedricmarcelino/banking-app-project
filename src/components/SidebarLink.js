@@ -7,7 +7,7 @@ function SidebarLink(props) {
     
     
     return (
-        <div className="m-8 text-xl">
+        <div className={props.linkStyle}>
             <span className = {`cursor-pointer ${activeLink} hover:text-pink-600`} onClick={props.showPage}>{props.name}</span>
         </div>
     )
