@@ -33,7 +33,7 @@ function App() {
           return matches && 
           <>
             <Header value="PBF" justify="justify-between" setActive={setActive} showUsersPage={showUsersPage} showHamburgerMenu={showHamburgerMenu}/>
-            <MainContent showPage = {active} width="w-full text-center" showAddUsersPage = {showAddUsersPage} showDelUsersPage={showDelUsersPage} showUsersPage={showUsersPage} userInformationStyle="py-5 shadow-inner text-center flex flex-wrap fade-in bg-white border-l-4 border-solid border-pink-600" budgetStyle="shadow-inner py-5 fade-in bg-white border-l-4 border-solid border-pink-600 text-center"/>
+            <MainContent active = {active} width="w-full text-center" showAddUsersPage = {showAddUsersPage} showDelUsersPage={showDelUsersPage} showUsersPage={showUsersPage} userInformationStyle="py-5 shadow-inner text-center flex flex-wrap fade-in bg-white border-l-4 border-solid border-pink-600" budgetStyle="shadow-inner py-5 fade-in bg-white border-l-4 border-solid border-pink-600 text-center"/>
             <Footer />
           </>
         }}

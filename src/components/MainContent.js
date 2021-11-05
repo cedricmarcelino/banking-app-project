@@ -5,12 +5,12 @@ import Sidebar from './Sidebar'
 import { useState } from 'react'
 
 function MainContent(props) {
-    const {showPage,width,showAddUsersPage,showDelUsersPage,showUsersPage,userInformationStyle,budgetStyle} = props
+    const {showPage,width,showAddUsersPage,showDelUsersPage,showUsersPage,userInformationStyle,budgetStyle,active,setActive} = props
     const [users,setUsers] = useState(() => JSON.parse(localStorage.getItem("users")))
 
     return (
         <div className = {`maincontent shadow-inner ${width} bg-gray-200`}>
-            {showPage==="Users" && <Data users={users} setUsers={setUsers} userInformationStyle={userInformationStyle} budgetStyle={budgetStyle}/>}
+            {showPage==="Users" && <Data users={users} setUsers={setUsers} userInformationStyle={userInformationStyle} budgetStyle={budgetStyle} active={active} setActive={setActive}/>}
             {showPage==="AddUserPage" && <AddUserPage users={users} setUsers={setUsers}/>}
             {showPage==="DelUserPage" && <DelUserPage users={users} setUsers={setUsers}/>}
             {/* eslint-disable-next-line */}

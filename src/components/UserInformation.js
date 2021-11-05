@@ -39,7 +39,7 @@ function UserInformation(props) {
                             </div>
                             <div className="w-60 m-2 p-4">
                                 <i className='fas fa-wallet text-7xl cursor-pointer hover:text-pink-600' onClick = {showWithdrawPage}></i><br></br>
-                                <span>Widthdraw</span>
+                                <span>Withdraw</span>
                             </div>
                             <div className="w-60 m-2 p-4">
                                 <i className='fas fa-hand-holding-usd text-7xl cursor-pointer hover:text-pink-600' onClick = {showSendMoneyPage}></i><br></br>

@@ -26,7 +26,7 @@ function Data(props) {
         }
     }
 
-
+    
     useEffect(() => {
         if(users!=="" && users!==null){
             for(let i = 0; i<users.length; i++){

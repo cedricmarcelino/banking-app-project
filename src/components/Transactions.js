@@ -12,7 +12,7 @@ function Transactions(props) {
                                 <th className="w-1/3">Amount</th>
                             </tr>
                         </thead>
-                        <tbody className="flex flex-col h-96 overflow-y-scroll">
+                        <tbody className="flex flex-col max-h-96 overflow-y-scroll">
                             {
                                 usersTransactions.reverse().map((transaction,index) => 
                                     
