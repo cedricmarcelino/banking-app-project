@@ -15,7 +15,7 @@ This is a simple banking web application leveraging the browser's local storage.
 
 ## Techs use
 
-1. ReactJS (Page Router)
+1. ReactJS
 2. Tailwind
 
 ## Deployment
